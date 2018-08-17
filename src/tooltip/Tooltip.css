@@ -1,0 +1,21 @@
+.tooltip {
+    padding: 30px;
+    width: 50%;
+    text-align: left;
+    border: 1px solid black;
+    margin: 10px auto;
+    position: relative;
+}
+.tooltip .tooltip {
+    position: absolute;
+    top: 90%;
+    width: auto;
+    border: none;
+    border-top: 1px solid #EEE;
+    border-left: 1px solid #EEE;
+    box-shadow: 3px 3px 2px #999;
+    left: 0;
+    transition: all linear 0.3s;
+}
+.tooltip .tooltip.hidden { opacity: 0; transform: scale(0); }
+.tooltip .tooltip.appear { opacity: 1; transform: scale(1); }
