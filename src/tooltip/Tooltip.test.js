@@ -47,4 +47,33 @@ describe('Tooltip spec...', () => {
         expect(t.length).toBe(1);
         expect(t[0].className).toBe('tooltip hidden');
     });
+    it('should show tooltip only when focus is set', () => {
+        let component = <Tooltip content="Abobrinha na TOoltip" more="Something cool!!!" time={0}/>,
+            container = document.createElement('div'),
+            div = null, link = null, t;
+        ReactDOM.render(component, container);
+        div = container.querySelector('div');
+        link = container.querySelector('a');
+        ReactTestUtils.Simulate.focus(link);
+        t = div.querySelector('div');
+        expect(t.tagName).toBe('DIV');
+        expect(t.className).toBe('tooltip appear');
+        expect(t.textContent).toBe('Something cool!!!');
+    });
+    it('should hide tooltip when the element is blured', () => {
+        let component = <Tooltip content="Abobrinha na TOoltip" more="Something cool!!!" time={0}/>,
+            container = document.createElement('div'),
+            div = null, link = null, t = null;
+        ReactDOM.render(component, container);
+        div = container.querySelector('div');
+        link = container.querySelector('a');
+        ReactTestUtils.Simulate.focus(link);
+        t = div.querySelector('div');
+        expect(t.textContent).toBe('Something cool!!!');
+        expect(t.className).toBe('tooltip appear');
+        ReactTestUtils.Simulate.blur(link);
+        t = div.querySelectorAll('div');
+        expect(t.length).toBe(1);
+        expect(t[0].className).toBe('tooltip hidden');
+    });
 });
