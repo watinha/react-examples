@@ -1,7 +1,7 @@
 React.js Examples for dummies
 =============================
 
-![Travis-CI build](https://travis-ci.org/watinha/react-examples.svg?branch=master "Travis-CI build")
+[![Travis-CI build](https://travis-ci.org/watinha/react-examples.svg?branch=master)](https://travis-ci.org/watinha/react-examples)
 
 TODO
 ----
