@@ -71,4 +71,102 @@ describe('Filtering spec...', () => {
         expect(input.value).toBe('Pepino');
     });
 
+    it('should move the selected element using down arrow', () => {
+        let options = [{name: 'Abobrinha'}, {name: 'Pepino'}, {name: 'Uva'}],
+            component = <Filtering options={options}/>,
+            container = document.createElement('div'),
+            suggestions, selected, input;
+        ReactDOM.render(component, container);
+        input = container.querySelector('input');
+        ReactTestUtils.Simulate.focus(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        selected = container.querySelector('li.selected');
+        expect(input.value).toBe('Abobrinha');
+        expect(selected.textContent).toBe('Abobrinha');
+    });
+
+    it('should move the selected element using down arrow multiple times', () => {
+        let options = [{name: 'Abobrinha'}, {name: 'Pepino'}, {name: 'Uva'}],
+            component = <Filtering options={options}/>,
+            container = document.createElement('div'),
+            suggestions, selected, input;
+        ReactDOM.render(component, container);
+        input = container.querySelector('input');
+        ReactTestUtils.Simulate.focus(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        selected = container.querySelector('li.selected');
+        expect(input.value).toBe('Uva');
+        expect(selected.textContent).toBe('Uva');
+    });
+
+    it('should move the selected element using up arrow', () => {
+        let options = [{name: 'Abobrinha'}, {name: 'Pepino'}, {name: 'Uva'}],
+            component = <Filtering options={options}/>,
+            container = document.createElement('div'),
+            suggestions, selected, input;
+        ReactDOM.render(component, container);
+        input = container.querySelector('input');
+        ReactTestUtils.Simulate.focus(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 38});
+        selected = container.querySelector('li.selected');
+        expect(input.value).toBe('Pepino');
+        expect(selected.textContent).toBe('Pepino');
+    });
+
+    it('should not move the selected element using up arrow to less than 0', () => {
+        let options = [{name: 'Abobrinha'}, {name: 'Pepino'}, {name: 'Uva'}],
+            component = <Filtering options={options}/>,
+            container = document.createElement('div'),
+            suggestions, selected, input;
+        ReactDOM.render(component, container);
+        input = container.querySelector('input');
+        ReactTestUtils.Simulate.focus(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 38});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 38});
+        selected = container.querySelector('li.selected');
+        expect(input.value).toBe('Abobrinha');
+        expect(selected.textContent).toBe('Abobrinha');
+    });
+
+    it('should not move the selected element using up arrow to more than max', () => {
+        let options = [{name: 'Abobrinha'}, {name: 'Pepino'}, {name: 'Uva'}],
+            component = <Filtering options={options}/>,
+            container = document.createElement('div'),
+            suggestions, selected, input;
+        ReactDOM.render(component, container);
+        input = container.querySelector('input');
+        ReactTestUtils.Simulate.focus(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        selected = container.querySelector('li.selected');
+        expect(input.value).toBe('Uva');
+        expect(selected.textContent).toBe('Uva');
+    });
+
+    it('should not move the selected element using up arrow to more than max', () => {
+        let options = [{name: 'Abobrinha'}, {name: 'Pepino'}, {name: 'Uva'}],
+            component = <Filtering options={options}/>,
+            container = document.createElement('div'),
+            suggestions, selected, input;
+        ReactDOM.render(component, container);
+        input = container.querySelector('input');
+        ReactTestUtils.Simulate.focus(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        input.value = 'Ab';
+        ReactTestUtils.Simulate.change(input);
+        ReactTestUtils.Simulate.keyUp(input, {keyCode: 40});
+        selected = container.querySelector('li.selected');
+        expect(input.value).toBe('Abobrinha');
+        expect(selected.textContent).toBe('Abobrinha');
+    });
 });

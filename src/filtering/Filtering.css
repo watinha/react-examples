@@ -2,6 +2,9 @@
     width: 50%;
     margin: 0 auto;
 }
+li.selected {
+    background-color: #DDDDDD;
+}
 .filtering li {
     text-align: left;
 }
