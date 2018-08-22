@@ -10,7 +10,7 @@ describe('Filtering spec...', () => {
             container = document.createElement('div'),
             mainElement, input, suggestions;
         ReactDOM.render(component, container);
-        mainElement = container.querySelectorAll('div');
+        mainElement = container.querySelectorAll('div.filtering');
         input = container.querySelectorAll('input');
         suggestions = container.querySelectorAll('ul');
         expect(mainElement.length).toBe(1);

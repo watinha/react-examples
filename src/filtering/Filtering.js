@@ -58,15 +58,17 @@ class Filtering extends React.Component {
     render () {
         return (<div className="filtering">
             <label htmlFor="searchField">Search: </label>
-            <input id="searchField" onKeyUp={this.keyup} onChange={this.change}
-                   autoComplete="false" aria-autocomplete="list" aria-owns="suggestions"
-                   value={this.state.searchValue} />
-            <ul id="suggestions" role="listbox">
-            {this.state.suggestions.map((option, index) => {
-                return <li onClick={this.select} key={option.name}
-                           className={(index === this.state.selectedIndex ? "selected" : "")}>{option.name}</li>
-            })}
-            </ul>
+            <div className="input">
+                <input id="searchField" onKeyUp={this.keyup} onChange={this.change}
+                       autoComplete="false" aria-autocomplete="list" aria-owns="suggestions"
+                       value={this.state.searchValue} />
+                <ul id="suggestions" role="listbox">
+                {this.state.suggestions.map((option, index) => {
+                    return <li onClick={this.select} key={option.name}
+                               className={(index === this.state.selectedIndex ? "selected" : "")}>{option.name}</li>
+                })}
+                </ul>
+            </div>
         </div>);
     }
 }

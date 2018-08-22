@@ -8,3 +8,11 @@ li.selected {
 .filtering li {
     text-align: left;
 }
+.input input {
+    display: block;
+    width: 100%;
+}
+.input {
+    width: 50%;
+    margin: 0 auto;
+}
