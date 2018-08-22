@@ -5,6 +5,7 @@ import Filtering from './filtering/Filtering';
 import Tabpanel from './tabpanel/Tabpanel';
 import Message from './simple/message';
 import Accordion from './simple/accordion';
+import Todo from './simple/todo';
 
 class App extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class App extends Component {
         <Tabpanel structure={this.panel_props}/>
         <Message button="Click" message="Super legal!!!" />
         <Accordion />
+        <Todo />
       </div>
     );
   }
