@@ -9,7 +9,7 @@ export default class Todo extends React.Component {
 
     add () {
         let itens = this.state.itens;
-        itens.push(this.state.input);
+        itens.push({ text: this.state.input, done: false });
         this.setState({
             itens: itens,
             input: ''
@@ -21,13 +21,11 @@ export default class Todo extends React.Component {
     }
 
     done (index) {
-        setTimeout(() => {
-            let itens = this.state.itens;
-            itens.splice(index, 1);
-            this.setState({
-                itens: itens
-            });
-        }, 1000);
+        let itens = this.state.itens;
+        itens[index].done = true;
+        this.setState({
+            itens: itens
+        });
     }
 
     render () {
@@ -40,11 +38,12 @@ export default class Todo extends React.Component {
                 <ul>
                 {(this.state.itens.map((item, index) => {
                     return (
-                        <li key={'todo' + item}>
+                        <li key={'todo' + item.text}
+                            className={(item.done ? 'done' : '')}>
                             <input type="checkbox"
                                    id={'checkbox' + index}
                                    onClick={this.done.bind(this, index)}/>
-                            <label htmlFor={'checkbox' + index}>{item}</label>
+                            <label htmlFor={'checkbox' + index}>{item.text}</label>
                         </li>
                     );
                 }))}

@@ -75,15 +75,15 @@ describe('Todo component', () => {
         input.value = 'mamão';
         ReactTestUtils.Simulate.change(input);
         ReactTestUtils.Simulate.click(button);
-
         check = container.querySelectorAll('input[type=checkbox]');
-        expect(check.length).toBe(3);
+
         ReactTestUtils.Simulate.click(check[0]);
         itens = container.querySelectorAll('li');
-        check = container.querySelectorAll('input[type=checkbox]');
-        expect(check.length).toBe(2);
-        expect(itens[0].textContent).toContain('avocado');
-        expect(itens[1].textContent).toContain('mamão');
+        expect(check.length).toBe(3);
+        expect(itens[0].textContent).toContain('Pepino');
+        expect(itens[0].className).toContain('done');
+        expect(itens[1].textContent).toContain('avocado');
+        expect(itens[2].textContent).toContain('mamão');
     });
 
     it('should remove other todo itens after some time', () => {
@@ -109,8 +109,10 @@ describe('Todo component', () => {
         ReactTestUtils.Simulate.click(check[1]);
         itens = container.querySelectorAll('li');
         check = container.querySelectorAll('input[type=checkbox]');
-        expect(check.length).toBe(2);
+        expect(check.length).toBe(3);
         expect(itens[0].textContent).toContain('Pepino');
-        expect(itens[1].textContent).toContain('mamão');
+        expect(itens[1].textContent).toContain('avocado');
+        expect(itens[1].className).toContain('done');
+        expect(itens[2].textContent).toContain('mamão');
     });
 });
