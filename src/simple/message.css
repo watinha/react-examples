@@ -1,0 +1,9 @@
+.message {
+    margin: 50px;
+}
+.message div {
+    display: none;
+    background-color: yellow;
+    padding: 5px;
+}
+.message div.appear {display: block; }

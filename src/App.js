@@ -3,6 +3,7 @@ import './App.css';
 import Tooltip from './tooltip/Tooltip';
 import Filtering from './filtering/Filtering';
 import Tabpanel from './tabpanel/Tabpanel';
+import Message from './simple/message';
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class App extends Component {
         <Tooltip content="Super legal esse negócio de components" more="super legal" time={300}/>
         <Filtering options={this.options} />
         <Tabpanel structure={this.panel_props}/>
+        <Message button="Click" message="Super legal!!!" />
       </div>
     );
   }
