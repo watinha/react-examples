@@ -4,6 +4,7 @@ import Tooltip from './tooltip/Tooltip';
 import Filtering from './filtering/Filtering';
 import Tabpanel from './tabpanel/Tabpanel';
 import Message from './simple/message';
+import Accordion from './simple/accordion';
 
 class App extends Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class App extends Component {
         <Filtering options={this.options} />
         <Tabpanel structure={this.panel_props}/>
         <Message button="Click" message="Super legal!!!" />
+        <Accordion />
       </div>
     );
   }

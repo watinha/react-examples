@@ -1,0 +1,10 @@
+.accordion {
+    text-align: left;
+    width: 50%;
+    margin: 50px auto;
+}
+.accordion section, .accordion button {
+    width: 100%;
+}
+.accordion section div { max-height: 0; height: 50px; transition: all linear 0.3s; overflow: hidden; }
+.accordion section.appear div { max-height: 400px; padding: 10px; }
