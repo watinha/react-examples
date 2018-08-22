@@ -1,0 +1,43 @@
+[role=tab].selected {
+    transform: scale(1.1);
+}
+.tab {
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+}
+.tab [role=tab] {
+    display: block;
+    float: left;
+    background-color: #EEEEEE;
+    box-shadow: -3px 2px 2px #CCC;
+    padding: 5px;
+    margin-right: 5px;
+    transition: transform linear 0.3s;
+}
+.mask {
+    position: relative;
+    clear:both;
+    overflow: hidden;
+    box-shadow: 3px 2px 2px #DDD;
+    border-top: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+}
+.panels {
+    clear: both;
+    overflow: hidden;
+    width: 9999px;
+}
+.panels [role=tabpanel].selected {
+    width: 500px;
+    opacity: 1;
+}
+.panels [role=tabpanel] {
+    float: left;
+    width: 0;
+    opacity: 0;
+    border-right: 1px solid #DDD;
+    overflow: hidden;
+    text-align: left;
+    transition: all linear 0.3s;
+}
