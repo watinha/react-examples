@@ -8,11 +8,10 @@ export default class Todo extends React.Component {
     }
 
     add () {
-        let itens = this.state.itens;
-        itens.push({ text: this.state.input, done: false });
-        this.setState({
-            itens: itens,
-            input: ''
+        this.setState((prev) => {
+            prev.itens.push({ text: this.state.input, done: false });
+            prev.input = '';
+            return prev;
         });
     }
 
@@ -21,10 +20,9 @@ export default class Todo extends React.Component {
     }
 
     done (index) {
-        let itens = this.state.itens;
-        itens[index].done = true;
-        this.setState({
-            itens: itens
+        this.setState((prev) => {
+            prev.itens[index].done = true;
+            return prev;
         });
     }
 
