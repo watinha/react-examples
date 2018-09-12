@@ -19,7 +19,7 @@ export default class Tabpanel extends React.Component {
 
     keyup (ev) {
         let selected = this.state.selected;
-        if (ev.keyCode === 39 || ev.keyCode === 30) {
+        if (ev.keyCode === 39 || ev.keyCode === 38) {
             selected = ((selected + 1) < this.tabs.length ? selected + 1 : selected);
             this.tabs[selected].current.focus();
             this.setState({selected: selected});
