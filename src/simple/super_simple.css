@@ -1,0 +1,8 @@
+.super_simple {
+    background-color: red;
+    color: blue;
+    padding: 10px;
+    max-width: 300px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 2px #EEE;
+}

@@ -8,6 +8,7 @@ import Message from './simple/message';
 import Accordion from './simple/accordion';
 import Todo from './simple/todo';
 import SearchWikipedia from './simple/ajax/search_wikipedia';
+import SuperSimple from './simple/super_simple';
 
 class App extends Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class App extends Component {
         <Tooltip content="Super legal esse negócio de components" more="super legal" time={300}/>
         <Filtering options={this.options} />
         <Tabpanel structure={this.panel_props}/>
+        <SuperSimple title="Super útil esse componente" />
         <Message button="Click" message="Super legal!!!" />
         <Accordion />
         <Todo />
