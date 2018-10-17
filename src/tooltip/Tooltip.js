@@ -26,7 +26,7 @@ class Tooltip extends React.Component {
         return (
             <div className="tooltip"
                  onMouseOver={this.show} onMouseOut={this.hide}>
-                <a href="#" onBlur={this.hide} onFocus={this.show}
+                <a href="#exampleTooltip" onBlur={this.hide} onFocus={this.show}
                    aria-describedby="tooltip">{this.props.content}</a>
                 <div id="tooltip" role="tooltip"
                      className={"tooltip " + (this.state.visible ? 'appear' : 'hidden') }>
