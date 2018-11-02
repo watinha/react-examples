@@ -14,8 +14,10 @@ export default class Message extends React.Component {
     render () {
         return (
             <div className="message">
-                <button onClick={this.show.bind(this)}>{this.props.button}</button>
-                <div className={(this.state.msg ? 'appear' : '')}>{this.props.message}</div>
+                <button onClick={this.show.bind(this)}>
+                    {this.props.button}</button>
+                <div className={(this.state.msg ? 'appear' : '')}>
+                    {this.props.message}</div>
             </div>
         );
     }

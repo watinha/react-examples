@@ -8,7 +8,8 @@ export default class SearchWikipedia extends React.Component {
 
     searchWikipedia () {
         let self = this;
-        this.props.axios.get('https://en.wikipedia.org/w/api.php?prop=extracts&exintro&explaintext', {
+        this.props.axios.get(
+            'https://en.wikipedia.org/w/api.php?prop=extracts&exintro&explaintext', {
             params: {
                format: 'json',
                action: 'query',
@@ -18,7 +19,8 @@ export default class SearchWikipedia extends React.Component {
             }
         }).then((response) => {
             self.setState({
-                description: response.data.query.pages[Object.keys(response.data.query.pages)[0]].extract
+                description: response.data.query.pages[
+                    Object.keys(response.data.query.pages)[0]].extract
             });
         });
     }
