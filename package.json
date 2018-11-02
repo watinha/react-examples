@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "coveralls": "^3.0.2",
+    "merge": "^1.2.1",
     "react": "^16.4.2",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.4.2",
