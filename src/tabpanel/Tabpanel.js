@@ -23,13 +23,11 @@ export default class Tabpanel extends React.Component {
             selected = ((selected + 1) < this.tabs.length ? selected + 1 : selected);
             this.tabs[selected].current.focus();
             this.setState({selected: selected});
-            return ;
         }
         if (ev.keyCode === 37 || ev.keyCode === 40) {
             selected = ((selected - 1) >= 0 ? selected - 1 : selected);
             this.tabs[selected].current.focus();
             this.setState({selected: selected});
-            return ;
         }
     }
 
